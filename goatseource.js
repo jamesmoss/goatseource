@@ -1,14 +1,14 @@
 (function(){
 
 	// check if this page is already goatseourced
-	if(typeof goatseourced != 'undefined') {
+	if(typeof goatseourced !== 'undefined' && goatseourced === true) {
 		return;
 	}
 	goatseourced = true;
 
 	// Check if jQuery is loaded
 	if(typeof window.jQuery != 'undefined') {
-		goatseource();
+		jQuery(document).ready(goatseource);
 	} else {
 		// Check for conflicts
 		var conflict = typeof window.$ != 'undefined';
@@ -27,12 +27,13 @@
 					window.setTimeout(arguments.callee, 250);
 				}
 			} else {
-				goatseource();
+				jQuery(document).ready(goatseource);
 			}
 		})();
 	}
 
 	function goatseource() {
+		alert($(window).height());
 
 		var host = 'http://jamesmoss.co.uk/goatseource/';
 			
@@ -65,16 +66,39 @@
 		container.appendTo(jQuery('body'));
 
 		// vertically align the animation
-		inner.css('margin-top', ((container.height() - 500) / 2)+'px' );
+		var offset = jQuery(window).height() - 500;
+		if(offset < 0) offset = 0;
+		inner.css('margin-top', (offset / 2)+'px' );
 		
 		// animate it all
-		inner.hide().fadeIn(1000, function() {
+		inner.hide().fadeIn(600, function() {
 			// animate the stretch
 			mask.animate({width:500, height: 400});
 			source.animate({marginLeft: 0});
-			leftArm.animate({left:-770});
-			rightArm.animate({left: 440});
+			leftArm.animate({left:-770, top: 100});
+			rightArm.animate({left: 440, top: 100});
+
+			container.click(function(){
+				goatseourced = false;
+				container.remove();
+			});
+
+			// scrolly effect for long sources
+			if(source.outerHeight() > 400) {
+				var maxOffset = source.outerHeight() - 400;
+				var offset    = source.offset().top;
+
+				mask.mousemove(function(e){
+
+					var pos = (e.pageY - offset) / 400;
+
+					if(pos > 0 && pos <= 1) {
+						source.css('margin-top', 0-Math.floor(pos * maxOffset));
+					}
+				});
+			}
 		});
+		
 	}
 
 

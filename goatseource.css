@@ -1,7 +1,7 @@
-#goatseource { width: 100%; height: 100%; position: fixed; top: 0; left: 0; overflow: hidden; display:table-cell; vertical-align:middle; }
+#goatseource { width: 100%; height: 100%; position: fixed; top: 0; left: 0; overflow: hidden; display:table-cell; vertical-align:middle; z-index: 100000; }
 #goatseource .goatseource-animation { position: relative; width:500px; height: 100%; margin: 0 auto;}
-#goatseource img { position: absolute; top: 100px; }
+#goatseource img { position: absolute; top: 50px; }
 #goatseource img.goatseource-left { left: -566px; }
 #goatseource img.goatseource-right { left: 235px; }
-#goatseource .goatseource-mask { overflow: hidden; height: 400px; width: 50px; border-radius: 100px / 250px; margin: 0 auto; background: red; box-shadow: inset 0px 0px 25px black; }
+#goatseource .goatseource-mask { overflow: hidden; height: 300px; width: 50px; border-radius: 100px / 250px; margin: 0 auto; background: red; box-shadow: inset 0px 0px 25px black; }
 #goatseource .goatseource-source { color: white; width: 500px; font-size: 11px; margin-left: -223px; white-space: pre-wrap; font-family: monospace; padding: 40px;}
