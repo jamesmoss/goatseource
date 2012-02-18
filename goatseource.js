@@ -1,7 +1,7 @@
 (function(){
 
 	// check if this page is already goatseourced
-	if(typeof goatseourced == 'undefined') {
+	if(typeof goatseourced != 'undefined') {
 		return;
 	}
 	goatseourced = true;
