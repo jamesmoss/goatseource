@@ -33,10 +33,8 @@
 	}
 
 	function goatseource() {
-		alert($(window).height());
-
 		var host = 'http://jamesmoss.co.uk/goatseource/';
-			
+
 		var html = '<div id="goatseource">';
 			html+= '	<div class="goatseource-animation">';
 			html+= '		<img src="'+host+'left-arm.png" class="goatseource-left" width="833" height="400" alt="" />';
