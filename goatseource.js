@@ -1,4 +1,11 @@
 (function(){
+
+	// check if this page is already goatseourced
+	if(goatseourced) {
+		return;
+	}
+	goatseourced = true;
+
 	// Check if jQuery is loaded
 	if(typeof window.jQuery != 'undefined') {
 		goatseource();
