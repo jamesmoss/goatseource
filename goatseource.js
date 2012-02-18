@@ -48,7 +48,7 @@
 			pageSource = '<html>\n' + $('html').html() + '\n</html>';
 
 		// inject our CSS
-		jQuery('<link rel="stylesheet" type="text/css" href="'+host+'goatseource.css" />').appendTo(jQuery('head'));
+		jQuery('<link rel="stylesheet" type="text/css" href="'+host+'goatseource.css?v=1" />').appendTo(jQuery('head'));
 
 		// try and remove ourselves from the HTML that gets displayed
 		pageSource = pageSource.replace('<script src="'+host+'goatseource.js"></script>', '');
